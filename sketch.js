@@ -21,6 +21,7 @@ var MH;
 var vida_fit = 250;
 var vida_MH = 1000;
 var alimentos_fit = 500;
+var brocoliGroup,burritoGroup,cocaGroup,burgerGroup,manzanaGroup,platanoGroup;
 
 function preload(){
   juego_background = loadImage("sprites/cocina.png");
@@ -38,18 +39,32 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(1200,1500);
+  createCanvas(600,800);
  
-  fit = createSprite(600,1350);
+  fit = createSprite(300,680);
   fit.addImage(fitImg);
-  fit.scale = 5;
+  fit.scale = 3;
 
-  MH = createSprite(600,200);
+  MH = createSprite(300,100);
   MH.addImage(MH4);
-  MH.scale = 2;
+  MH.scale = 1;
+  brocoliGroup = new Group();
+  burritoGroup = new Group();
+  cocaGroup = new Group();
+  burgerGroup = new Group();
+  manzanaGroup = new Group();
+  platanoGroup = new Group();
+  edges = createEdgeSprites();
 }
 
 function draw() {
-  background(juego_background);  
+  background(juego_background); 
+  if(keyDown("a")){
+    fit.x = fit.x -5
+  }
+  if(keyDown("d")){
+    fit.x = fit.x +5
+  }
+  fit.bounce(edges)
   drawSprites();
 }
