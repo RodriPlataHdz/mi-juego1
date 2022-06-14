@@ -66,5 +66,56 @@ function draw() {
     fit.x = fit.x +5
   }
   fit.bounce(edges)
+
+  
+  lanzar_burrito();
+  lanzar_burger();
+ 
+if(keyDown("s")){
+  lanzar_brocoli();
+}
+
   drawSprites();
+}
+
+function lanzar_burrito(){
+  if (frameCount % 50 === 0){
+  burrito = createSprite(300,160);
+  burrito.addImage(burritoImg)
+  burrito.scale = 0.5;
+  burrito.velocityX = Math.round(random(-3,3))
+  burrito.velocityY = 3
+  burritoGroup.add(burrito)
+  burrito.depth = MH.depth;
+  MH.depth = MH.depth + 1; 
+  
+}
+}
+function lanzar_burger(){
+  if (frameCount % 40 === 0){
+    burger = createSprite(300,160);
+    burger.addImage(burgerImg)
+    burger.scale = 0.5;
+    burger.velocityX = Math.round(random(-3,3))
+    burger.velocityY = 3
+  burgerGroup.add(burger)
+  burger.depth = MH.depth;
+  MH.depth = MH.depth + 1; 
+  
+}
+}
+
+function lanzar_brocoli(){
+  
+    brocoli = createSprite(300,650);
+    brocoli.addImage(brocoliImg)
+    brocoli.scale = 0.5;
+    brocoli.x = fit.x;
+    brocoli.y = fit.y;
+    //brocoli.velocityX = Math.round(random(-3,3))
+    brocoli.velocityY = -4
+    brocoliGroup.add(brocoli)
+    brocoli.depth = fit.depth;
+  fit.depth = fit.depth + 1; 
+  
 }
